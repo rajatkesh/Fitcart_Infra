@@ -25,7 +25,7 @@ variable "root_networking" {
     location            = string
     address_space       = list(string)
     dns_servers         = list(string)
-    subnet             = list(object({
+    subnet = list(object({
       name             = string
       address_prefixes = list(string)
     }))
@@ -71,57 +71,57 @@ variable "root_aks_cluster" {
 variable "root_aks_nodepool" {
   description = "A map of root AKS node pools to create"
   type = map(object({
-    name                  = string
-    vm_size               = string
-    node_count            = number
-  })) 
+    name       = string
+    vm_size    = string
+    node_count = number
+  }))
 }
 
 variable "root_pip" {
-    description = "A map of root public IPs to create"
-    type        = map(object({
+  description = "A map of root public IPs to create"
+  type = map(object({
     name                = string
     location            = string
     resource_group_name = string
     allocation_method   = string
-    }))
+  }))
 }
 variable "root_lb" {
-    description = "A map of root load balancers to create"
-    type        = map(object({
-    name                = string
-    location            = string
-    resource_group_name = string
-    public_ip_key     = string
-}))
-}
-
-variable "root_acr" {
-    description = "A map of root Azure Container Registries to create"
-    type        = map(object({
-    name                = string
-    location            = string
-    resource_group_name = string
-    georeplication_location = string
-}))
-}
-
-variable "root_application_gateway" {
-    description = "A map of root application gateways to create"
-    type        = map(object({
+  description = "A map of root load balancers to create"
+  type = map(object({
     name                = string
     location            = string
     resource_group_name = string
     public_ip_key       = string
-}))
+  }))
+}
+
+variable "root_acr" {
+  description = "A map of root Azure Container Registries to create"
+  type = map(object({
+    name                    = string
+    location                = string
+    resource_group_name     = string
+    georeplication_location = string
+  }))
+}
+
+variable "root_application_gateway" {
+  description = "A map of root application gateways to create"
+  type = map(object({
+    name                = string
+    location            = string
+    resource_group_name = string
+    public_ip_key       = string
+  }))
 }
 
 variable "root_public_ip" {
-    description = "A map of root public IPs to create"
-    type        = map(object({
+  description = "A map of root public IPs to create"
+  type = map(object({
     name                = string
     location            = string
     resource_group_name = string
     allocation_method   = string
-}))
+  }))
 }

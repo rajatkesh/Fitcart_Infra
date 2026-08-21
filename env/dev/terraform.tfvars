@@ -22,7 +22,7 @@ root_networking = {
     location            = "East US 2"
     address_space       = ["10.0.0.0/16"]
     dns_servers         = ["10.0.0.4", "10.0.0.5"]
-    subnet             = [
+    subnet = [
       {
         name             = "subnet1"
         address_prefixes = ["10.0.1.0/24"]
@@ -66,9 +66,9 @@ root_aks_cluster = {
 
 root_aks_nodepool = {
   "nodepool1" = {
-    name                  = "devaksnode"
-    vm_size               = "standard_d2als_v7"
-    node_count            = 1
+    name       = "devaksnode"
+    vm_size    = "standard_d2als_v7"
+    node_count = 1
   }
 }
 
@@ -92,10 +92,10 @@ root_pip = {
 
 root_acr = {
   "acr1" = {
-    name                     = "devacr28"
-    location                 = "East US 2"
-    resource_group_name      = "dev-rg28"
-    georeplication_location  = "North Europe"
+    name                    = "devacr28"
+    location                = "East US 2"
+    resource_group_name     = "dev-rg28"
+    georeplication_location = "North Europe"
   }
 }
 
