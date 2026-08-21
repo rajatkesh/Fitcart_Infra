@@ -7,23 +7,23 @@ on:
     branches:
       - main
     paths:
-      - 'dev/**'
-      - 'module/**'
+      - 'env/dev/**'
+      - 'modules/**'
       - '.github/workflows/deploy-infra.yml'
 
   pull_request:
     branches:
       - main
     paths:
-      - 'dev/**'
-      - 'module/**'
+      - 'env/dev/**'
+      - 'modules/**'
       - '.github/workflows/deploy-infra.yml'
 
 permissions:
   contents: read
 
 env:
-  TF_WORKING_DIR: dev
+  TF_WORKING_DIR: env/dev
   TF_VARS_FILE: terraform.tfvars
 
 jobs:
@@ -75,7 +75,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: terraform-plan
-          path: dev/tfplan
+          path: env/dev/tfplan
           retention-days: 1
 
 
@@ -120,7 +120,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: terraform-plan
-          path: dev
+          path: env/dev
 
       - name: Check Terraform Plan
         working-directory: ${{ env.TF_WORKING_DIR }}
